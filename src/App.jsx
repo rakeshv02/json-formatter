@@ -4,7 +4,6 @@ export default function App() {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
   const [error, setError] = useState('')
-  const [mode, setMode] = useState('format')
 
   const formatJSON = () => {
     try {
@@ -57,14 +56,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-4xl">
-        <div className="bg-slate-800 rounded-lg shadow-2xl p-6 border border-slate-700">
+        <div className="bg-slate-800 rounded-lg shadow-2xl p-8 border border-slate-700">
           <div className="mb-6">
-            <h1 className="text-3xl font-bold text-white mb-2">
-              { } JSON Formatter
-            </h1>
-            <p className="text-slate-400 text-sm">
-              Format, validate, and minify JSON instantly
-            </p>
+            <h1 className="text-3xl font-bold text-white mb-2">{ } JSON Formatter</h1>
+            <p className="text-slate-400 text-sm">Format, validate, and minify JSON instantly</p>
           </div>
 
           <div className="flex gap-2 mb-6 flex-wrap">
@@ -103,21 +98,17 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">
-                Input JSON
-              </label>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Input JSON</label>
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Paste your JSON here..."
-                className="w-full h-96 px-4 py-3 bg-slate-700 border border-slate-600 rounded text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none"
+                className="w-full h-96 px-4 py-3 bg-slate-700 border border-slate-600 rounded text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 resize-none"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">
-                Output JSON
-              </label>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Output JSON</label>
               <textarea
                 value={output}
                 readOnly
@@ -128,7 +119,7 @@ export default function App() {
           </div>
 
           {error && (
-            <div className={`mt-4 p-4 rounded ${error.includes('✅') ? 'bg-green-900 border border-green-700' : 'bg-red-900 border border-red-700'}`}>
+            <div className={`mt-4 p-4 rounded ${error.includes('✅') ? 'bg-green-900 bg-opacity-30 border border-green-600' : 'bg-red-900 bg-opacity-30 border border-red-600'}`}>
               <p className={error.includes('✅') ? 'text-green-300' : 'text-red-300'}>
                 {error}
               </p>
