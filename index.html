@@ -273,6 +273,94 @@ function showToast(){
     <div style="font-size:10px;color:#475569;margin-top:3px">As an Amazon Associate we earn from qualifying purchases.</div>
   </div>
 </div>
+
+<section id="seo-content">
+  <style>
+    #seo-content{max-width:760px;margin:2.5rem auto;padding:0 1.25rem 3rem;font-family:'Segoe UI',system-ui,Arial,sans-serif;color:#334155;line-height:1.7}
+    #seo-content h2{font-size:1.35rem;color:#0f172a;margin:2rem 0 .75rem}
+    #seo-content h3{font-size:1.05rem;color:#0f172a;margin:1.25rem 0 .5rem}
+    #seo-content p,#seo-content li{font-size:.95rem}
+    #seo-content ul{padding-left:1.4rem;margin:.5rem 0}
+    #seo-content .example{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;font-family:monospace;font-size:.85rem}
+    @media(prefers-color-scheme:dark){#seo-content{color:#cbd5e1}#seo-content h2,#seo-content h3{color:#f1f5f9}#seo-content .example{background:#1e293b;border-color:#334155}}
+  </style>
+  <h2>How to Use the JSON Formatter</h2>
+  <p>The JSON Formatter beautifies, minifies, and validates JSON instantly in your browser. Paste any JSON into the input area and press Format to produce a properly indented, human-readable version with consistent two or four-space indentation, correct line breaks, and colour-coded syntax highlighting. Press Minify to collapse the JSON into a single compact line with all whitespace removed — ideal for reducing payload size when sending data over an API or embedding JSON in HTML. The validator flags any syntax errors (missing commas, unmatched brackets, trailing commas, unquoted keys) immediately and highlights the line where the problem occurs, making it easy to debug malformed JSON responses from APIs or configuration files.</p>
+  <p>JSON (JavaScript Object Notation) is the dominant data interchange format for web APIs, configuration files, and data storage. It uses a simple syntax of key-value pairs enclosed in curly braces for objects, and ordered lists enclosed in square brackets for arrays. Valid JSON has strict rules: all string keys must be double-quoted, strings must use double quotes (not single), trailing commas after the last element are not permitted, and values must be one of six types — string, number, boolean (true/false), null, object, or array. These strict rules mean that JSON that looks correct to the human eye is often rejected by parsers due to small formatting errors, which is exactly why a validator is invaluable during development.</p>
+  <p>The formatter runs entirely in your browser — no data is sent to any server. This makes it safe to use with real API responses, authentication tokens, configuration files, or any data you would not want to share with a third-party service. The tool also handles large JSON payloads that might be slow in browser-based alternatives, and preserves the original data structure and ordering throughout formatting operations. Developers typically use the formatter when debugging REST APIs, inspecting webhook payloads, preparing data for documentation, or cleaning up machine-generated JSON that lacks whitespace.</p>
+
+  <h2>Common Use Cases</h2>
+  <ul>
+    <li><strong>Debugging API responses:</strong> Paste a raw API response to make nested objects and arrays readable at a glance.</li>
+    <li><strong>Validating configuration files:</strong> Check JSON config files (package.json, tsconfig.json, .eslintrc) for syntax errors before they cause build failures.</li>
+    <li><strong>Minifying for production:</strong> Strip whitespace before embedding JSON in a script tag or sending as an API payload to reduce byte count.</li>
+    <li><strong>Documentation:</strong> Format example JSON payloads consistently before adding them to API docs or README files.</li>
+    <li><strong>Comparing structures:</strong> Beautify two JSON responses with the same indentation standard to make diffing easier.</li>
+    <li><strong>Learning JSON:</strong> Explore how nested objects, arrays, and different value types are represented in well-formatted JSON.</li>
+  </ul>
+
+  <div class="example">Input (minified): {"name":"Alice","age":30,"tags":["developer","designer"]}<br><br>Output (formatted):<br>{<br>  "name": "Alice",<br>  "age": 30,<br>  "tags": ["developer", "designer"]<br>}</div>
+
+  <h2>Frequently Asked Questions</h2>
+  <h3>What is the difference between beautify and minify?</h3>
+  <p>Beautifying (or formatting) adds indentation, line breaks, and spacing to make JSON readable by humans — useful for debugging and documentation. Minifying removes all unnecessary whitespace to produce the smallest possible file size — useful for API payloads and production assets where every byte matters. Both operations produce semantically identical JSON that any parser will interpret the same way.</p>
+  <h3>What are the most common JSON syntax errors?</h3>
+  <p>The most frequent JSON errors are: trailing commas after the last element in an object or array (valid in JavaScript but not in JSON), single-quoted strings (JSON requires double quotes), unquoted object keys (valid in JavaScript object literals but not JSON), comments (JSON does not support // or /* */ comments), and missing commas between object properties or array elements.</p>
+  <h3>Is my data safe to paste into this formatter?</h3>
+  <p>Yes. The formatter runs entirely in your browser using JavaScript — no data leaves your device. There is no server-side processing, no logging, and no data storage. You can safely paste API keys, authentication tokens, or sensitive response data without it being transmitted anywhere.</p>
+  <h3>What is the maximum JSON size the formatter can handle?</h3>
+  <p>The formatter handles JSON up to several megabytes without issue in modern browsers. Very large files (tens of MB) may be slower to format due to browser memory constraints, but there is no hard limit enforced by the tool itself.</p>
+  <h3>Does the formatter support JSON5 or JSONC?</h3>
+  <p>The formatter validates and formats standard JSON (RFC 8259). JSON5 (which allows comments, trailing commas, and single-quoted strings) and JSONC (JSON with Comments) are supersets of JSON that are not valid per the standard. The formatter will flag JSON5/JSONC input as invalid when it encounters these extensions — use a dedicated JSON5 or JSONC parser for those formats.</p>
+</section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between beautify and minify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Beautifying adds indentation and spacing for human readability. Minifying removes all whitespace for minimal file size. Both produce semantically identical JSON that parsers interpret the same way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the most common JSON syntax errors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common JSON errors: trailing commas after the last element, single-quoted strings (JSON requires double quotes), unquoted keys, comments (not supported in JSON), and missing commas between elements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe to paste into this formatter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The formatter runs entirely in your browser — no data leaves your device. There is no server-side processing, no logging, and no data storage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the maximum JSON size the formatter can handle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The formatter handles JSON up to several megabytes without issue in modern browsers. Very large files may be slower due to browser memory constraints, but there is no hard limit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the formatter support JSON5 or JSONC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The formatter validates standard JSON (RFC 8259). JSON5 and JSONC are supersets that allow comments and trailing commas — the formatter will flag these as invalid since they are not standard JSON."
+      }
+    }
+  ]
+}
+</script>
 <footer style="background:#1a1a2e;margin-top:48px;padding:28px 24px;text-align:center;font-family:'Segoe UI',system-ui,Arial,sans-serif;font-size:13px;color:#94a3b8;line-height:1.8">
 <div style="font-weight:700;color:#fff;font-size:15px">⚡ Tabutility</div>
 <div>Free, private, browser-based tools. No sign-up, no tracking.</div>
